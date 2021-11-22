@@ -1,4 +1,4 @@
-import cv2 as cv 
+import cv2 as cv
 import os
 if not os.path.exists("data"):
     os.makedirs("data")
@@ -12,8 +12,8 @@ for s in Labels:
         os.makedirs("data/train/"+s)
     if not os.path.exists("data/test/"+s):
         os.makedirs("data/test/"+s)
-    
-mode="train"
+
+mode="test"
 minValue=70
 directory="data/"+mode+"/"
 cam=cv.VideoCapture(0)
@@ -34,7 +34,7 @@ while True:
        "Next":len(os.listdir(directory+"Next")),
        "Previous":len(os.listdir(directory+"Previous"))
       }
-    
+
     c=70
     for s in Labels:
         cv.putText(frame, s+str(count[s]), (10,c), cv.FONT_HERSHEY_PLAIN, 1.25, (55,0,255), 2)
